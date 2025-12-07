@@ -6,11 +6,13 @@ public class BirdController : MonoBehaviour
     [SerializeField]
     private float jumpForce = 5f, rotationPow = 10f;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
+    UIManager uIManager;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        uIManager = Object.FindFirstObjectByType<UIManager>();
     }
 
     private void Update()
@@ -21,14 +23,33 @@ public class BirdController : MonoBehaviour
         // 2. Ekrana Dokunuldu mu? (Dokunmatik ekran varsa ve basýldýysa)
         bool isTouched = Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
 
-        if (isMouseClicked || isTouched)
+        if ((isMouseClicked || isTouched)&& GameManager.instance.gameStarted)
         {
             rb.linearVelocity = Vector2.up * jumpForce;
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "score")
+        {
+            uIManager.UpdateScore(++GameManager.instance.score);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "pipe")
+        {
+            uIManager.ShowGameOverUI();
+        }
+    }
+
     private void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(0f, 0f, rb.linearVelocity.y * rotationPow);
+        if (GameManager.instance.gameStarted)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, rb.linearVelocity.y * rotationPow);
+        }
     }
 }

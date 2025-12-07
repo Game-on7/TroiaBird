@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject GameOverPanel;
     public GameObject PausePanel;
     public TextMeshProUGUI scoreText;
-public TextMeshProUGUI finalScoreText;
+    public TextMeshProUGUI finalScoreText;
 
 
     void Start()
@@ -26,6 +26,7 @@ public TextMeshProUGUI finalScoreText;
 
     public void ShowGameUI()
     {
+        GameManager.instance.StartGameButtonPressed();
         StartPanel.SetActive(false);
         GamePanel.SetActive(true);
         GameOverPanel.SetActive(false);
@@ -34,10 +35,12 @@ public TextMeshProUGUI finalScoreText;
 
     public void ShowGameOverUI()
     {
+        GameManager.instance.GameOver();
         StartPanel.SetActive(false);
         GamePanel.SetActive(false);
         GameOverPanel.SetActive(true);
         PausePanel.SetActive(false);
+        finalScoreText.text = GameManager.instance.score.ToString();
     }
 
     public void ShowPauseUI()
@@ -51,11 +54,6 @@ public TextMeshProUGUI finalScoreText;
     }
     public void UpdateScore(int score)
     {
-    scoreText.text = score.ToString();
-    }
-
-    public void ShowFinalScore(int score)
-    {
-    finalScoreText.text = "Score: " + score;
+        scoreText.text = score.ToString();
     }
 }

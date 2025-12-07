@@ -6,6 +6,9 @@ public class MovePipe : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.left * (speed * Time.deltaTime);
+        if (GameManager.instance.gameStarted)
+        {
+            transform.position += Vector3.left * (speed * Time.deltaTime);
+        }
     }
 }

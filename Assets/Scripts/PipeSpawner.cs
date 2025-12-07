@@ -10,26 +10,24 @@ public class PipeSpawner : MonoBehaviour
 
     private float timer;
     
-    void Start()
-    {
-        SpawnPipe();
-    }
-
     private void Update()
     {
-        if (timer > maxTime)
+        if (GameManager.instance.gameStarted)
         {
-            SpawnPipe();
-            timer = 0;
-        }
+            if (timer > maxTime)
+            {
+                SpawnPipe();
+                timer = 0;
+            }
 
-        timer += Time.deltaTime;
+            timer += Time.deltaTime;
+        }
     }
 
-    void SpawnPipe()
+    public void SpawnPipe()
     {
         Vector3 spawnPos = transform.position + new Vector3(0, Random.Range(-heightRange, heightRange));
         GameObject pipe1 = Instantiate(pipe, spawnPos, Quaternion.identity);
-        Destroy(pipe1, 10f);
+        Destroy(pipe1, 5f);
     }
 }
