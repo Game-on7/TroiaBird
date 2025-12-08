@@ -8,13 +8,17 @@ public class BirdController : MonoBehaviour
 
     public Rigidbody2D rb;
     UIManager uIManager;
+    public bool firstTap = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         uIManager = Object.FindFirstObjectByType<UIManager>();
     }
-
+    private void Start()
+    {
+        rb.simulated = false;
+    }
     private void Update()
     {
         // 1. Mouse Týklamasý Var mý? (Mouse takýlýysa ve sol týklandýysa)
@@ -25,7 +29,15 @@ public class BirdController : MonoBehaviour
 
         if ((isMouseClicked || isTouched)&& GameManager.instance.gameStarted)
         {
+            if (!firstTap)
+            {
+                firstTap = true;
+                rb.simulated = true;
+            }
+
+
             rb.linearVelocity = Vector2.up * jumpForce;
+            SFXManager.instance.Play("swoosh");
         }
     }
 

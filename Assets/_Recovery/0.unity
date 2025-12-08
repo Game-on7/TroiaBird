@@ -533,7 +533,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 127701857672233091, guid: 902745664e83b9d4ba9a615c66851b32, type: 3}
       propertyPath: jumpForce
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5326703270075263640, guid: 902745664e83b9d4ba9a615c66851b32, type: 3}
       propertyPath: m_GravityScale
@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8915132001094700279, guid: 902745664e83b9d4ba9a615c66851b32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8915132001094700279, guid: 902745664e83b9d4ba9a615c66851b32, type: 3}
       propertyPath: m_LocalPosition.y
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeSpawner
   maxTime: 1.5
-  heightRange: 2.5
+  heightRange: 1.25
   pipe: {fileID: 581882574908272319, guid: 71aedabaac07c8247b7695939a716ca8, type: 3}
   pipeParent: {fileID: 1596272996}
   birdController: {fileID: 83087986}
@@ -1313,10 +1313,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 562935909227064248, guid: 4fb671924f545364baefe0b0ec482afe, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1535251222875384991, guid: 4fb671924f545364baefe0b0ec482afe, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1420,10 +1416,6 @@ PrefabInstance:
     - target: {fileID: 2890085348509407289, guid: 4fb671924f545364baefe0b0ec482afe, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764698101259432801, guid: 4fb671924f545364baefe0b0ec482afe, type: 3}
-      propertyPath: m_Value
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4054217685567430324, guid: 4fb671924f545364baefe0b0ec482afe, type: 3}
       propertyPath: m_AnchorMax.y

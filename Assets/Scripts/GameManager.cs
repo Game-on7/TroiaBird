@@ -32,25 +32,23 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
         gameStarted = false;
-        birdController.rb.simulated = false;
     }
 
     public void StartGameButtonPressed()
     {
+        birdController.rb.simulated = false;
+        birdController.firstTap = false;
         musicMgr.GameMusic();
         birdController.rb.linearVelocity = Vector2.zero;
         score = 0;
         pipeSpawner.timer = 0;
-        birdController.rb.simulated = true;
         gameStarted = true;
         for (int i = 0; i < pipeSpawner.pipeParent.childCount; i++)
         {
             Destroy(pipeSpawner.pipeParent.GetChild(i).gameObject);
         }
-        pipeSpawner.SpawnPipe();
-        bird.transform.position = Vector3.zero;
+        bird.transform.position = new Vector3(-1.15f, 0, 0);
     }
 
     public void GameOver()

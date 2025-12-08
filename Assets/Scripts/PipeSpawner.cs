@@ -8,12 +8,13 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField] private float heightRange = 0.45f;
     [SerializeField] private GameObject pipe;
     public Transform pipeParent;
-
+    [SerializeField]
+    private BirdController birdController;
     public float timer;
     
     private void Update()
     {
-        if (GameManager.instance.gameStarted)
+        if (birdController.firstTap && GameManager.instance.gameStarted)
         {
             if (timer > maxTime)
             {
