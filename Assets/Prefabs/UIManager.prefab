@@ -47,6 +47,7 @@ MonoBehaviour:
   StartPanel: {fileID: 0}
   GamePanel: {fileID: 0}
   GameOverPanel: {fileID: 0}
-  PausePanel: {fileID: 0}
   scoreText: {fileID: 0}
   finalScoreText: {fileID: 0}
+  finalHighScoreTxt: {fileID: 0}
+  highScoreText: {fileID: 0}

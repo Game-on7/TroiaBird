@@ -34,6 +34,7 @@ public class BirdController : MonoBehaviour
         if(other.gameObject.tag == "score")
         {
             uIManager.UpdateScore(++GameManager.instance.score);
+            SFXManager.instance.Play("score");
         }
     }
 
