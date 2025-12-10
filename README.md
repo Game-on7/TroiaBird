@@ -43,4 +43,6 @@
 
 ## Kurulum
 ```bash
-git clone <repo-link>
+git clone https://github.com/Game-on7/TroiaBird.git
+```
+Klonladıktan sonra proje Unity ile açılabilir.
